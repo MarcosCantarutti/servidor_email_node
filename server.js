@@ -30,6 +30,12 @@ app.post('/send-email', upload.single('file'), async (req, res) => {
 
   console.log(attachedFile);
 
+  if (!attachedFile) {
+    return res
+      .status(400)
+      .json({ success: false, message: 'Nenhum arquivo anexado.' });
+  }
+
   // Configuração do e-mail
   const mailOptions = {
     from: process.env.EMAIL_USUARIO,
