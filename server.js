@@ -60,6 +60,10 @@ app.post('/send-email', upload.single('file'), async (req, res) => {
   }
 });
 
+app.get('/', (req, res) => {
+  res.send('Não tem nada pra ver aqui!');
+});
+
 app.listen(port, () => {
   console.log(`Servidor rodando em http://localhost:${port}`);
 });
